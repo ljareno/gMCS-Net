@@ -363,8 +363,12 @@ Laura Jareño - ljareno@unav.es
 <!-- ACKNOWLEDGMENTS -->
 
 # Acknowledgments
-* [Weights & Biases](https://www.wandb.ai/)
-* [Sparse Linear](https://github.com/hyeon95y/SparseLinear)
+* <a href="https://www.wandb.ai/">Weights & Biases</a>
+* <a href="https://github.com/hyeon95y/SparseLinear">Sparse Linear</a>
+* <a href="https://depmap.org/portal/">DepMap</a>
+* <a href="https://github.com/lvalcarcel/gmctool">gmctool</a>
+* <a href="https://slkb.osubmi.org/">Synthetic Lethality Knowledge Base (SLKB)</a>
+
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
