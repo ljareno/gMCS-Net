@@ -4,7 +4,10 @@
 <h1 align="center">gMCS-Net</h1>
 
 <p align="center">
-  An interpretable fuzzy neural network to predict context-specific essential genes
+  An interpretable fuzzy neural network to predict context-specific essential genes. 
+
+  *Authors: Laura Jareño, Luca Sára Pusztaházi, Naroa Barrena, Francisco J. Planes, Orsolya Csiszár, Angel Rubio*
+
   <br />
   <a href="https://github.com/ljareno/gMCS-Net/issues">Request Feature</a>
   <br />
@@ -16,6 +19,7 @@
   <summary>Table of Contents</summary>
   <ol>
     <li><a href="#about-the-project">About the Project</a></li>
+    <li><a href="#files-folders">Files and folders description</a></li>
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
@@ -67,6 +71,55 @@ gMCS-Net is an interpretable fuzzy neural network that bridges mechanistic model
 </p>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+
+<!-- Files and folders -->
+
+<a id="files-folders"></a>
+
+# Files and folders description
+
+* <a href="https://github.com/ljareno/gMCS-Net/code/python/">code/</a>
+
+  * <a href="https://github.com/ljareno/gMCS-Net/code/python/">python/</a>
+
+    * <a href="https://github.com/ljareno/gMCS-Net/code/python/neural_network.py">neural_network.py</a>: gMCS-Net neural network architecture.
+    * <a href="https://github.com/ljareno/gMCS-Net/code/python/neural_network_SLKB.py">neural_network_SLKB.py</a>: Neural network architecture adapted for SLKB analysis.
+    * <a href="https://github.com/ljareno/gMCS-Net/code/python/predict_SLKB.py">predict_SLKB.py</a>: Prediction of double gene knockouts using trained models. 
+    * <a href="https://github.com/ljareno/gMCS-Net/code/python/sparseLinearNew.py">sparse_Linear_New.py</a>: Definition of the sparse linear layer used in the model. 
+    * <a href="https://github.com/ljareno/gMCS-Net/code/python/Supp_normalization.py">Supp_normalization.py</a>: Selection of three representative genes and visualization of their expression distributions before and after rank- and MAD-based normalization (Supplementary analysis).
+    * <a href="https://github.com/ljareno/gMCS-Net/code/python/test_LELO.py">test_LELO.py</a>: Evaluation and prediction of gMCS-Net.
+    * <a href="https://github.com/ljareno/gMCS-Net/code/python/train_wandb.py">train_wandb.py</a>: Training of gMCS-Net model using Weights & Biases for experiment tracking.
+    * <a href="https://github.com/ljareno/gMCS-Net/code/python/train_wandb_SLKB.py">train_wandb_SLKB.py</a>: Training of SLKB-specific model using Weights & Biases.
+    * <a href="https://github.com/ljareno/gMCS-Net/code/python/util.py">util.py</a>: Utility functions required across Python scripts.
+
+  * <a href="https://github.com/ljareno/gMCS-Net/code/R/">R/</a>
+
+    * <a href="https://github.com/ljareno/gMCS-Net/code/R/AuxFunctions.R">AuxFunctions.R</a>: Auxiliary R functions used throughout the analysis.
+    * <a href="https://github.com/ljareno/gMCS-Net/code/R/max_col_sparse.cpp">max_col_sparse.cpp</a>: C++ function required for the fixed-threshold method.  
+    * <a href="https://github.com/ljareno/gMCS-Net/code/R/metrics.R">metrics.R</a>: Computation of performance metrics and generation of comparison plots for gMCS-Net, fixed-threshold, and XGBoost methods.
+    * <a href="https://github.com/ljareno/gMCS-Net/code/R/graph_heatmap.R">graph_heatmap.R</a>: Script for heatmap generation.
+    * <a href="https://github.com/ljareno/gMCS-Net/code/R/K_fold_cross_validation.R">K_fold_cross_validation.R</a>: K-fold cross-validation of cell lines.
+    * <a href="https://github.com/ljareno/gMCS-Net/code/R/SLKB.R">SLKB.R</a>: Double gene knockout analysis and associated visualizations.
+
+* <a href="https://github.com/ljareno/gMCS-Net/data/">data/</a>: Input files required for model training and downstream analyses.
+
+* <a href="https://github.com/ljareno/gMCS-Net/results/">results/</a>
+
+  * <a href="https://github.com/ljareno/gMCS-Net/results/Medium_analysis">Medium_analysis/</a>
+
+     * <a href="https://github.com/ljareno/gMCS-Net/results/Medium_analysis/Data">Data/</a>: Input data for gene activation parameter analysis.
+     * <a href="https://github.com/ljareno/gMCS-Net/results/Medium_analysis/growthMediums/">growthMediums/</a>: Definitions of different growth medium compositions.
+     * <a href="https://github.com/ljareno/gMCS-Net/results/Medium_analysis/Results">Results/</a>: Output file from gene activation parameter analyses.
+     * <a href="https://github.com/ljareno/gMCS-Net/results/Medium_analysis/obtain_met_info_by_gene.R">obtain_met_info_by_gene.R</a>: Script to retrieve metabolite information associated with specific genes.
+
+  * <a href="https://github.com/ljareno/gMCS-Net/results/SLKb/">SLKB/</a>: Input files and results from double gene knockout analyses.
+  * <a href="https://github.com/ljareno/gMCS-Net/results/bias.npy">bias.npy</a>: Bias values of the gene activation layer.
+  * <a href="https://github.com/ljareno/gMCS-Net/results/gMCS_Net_LELO_foldX_sd5_model.pt">gMCS_Net_LELO_foldX_sd5_model.pt</a>: Trained gMCS-Net model for each cross-validation fold.
+  * <a href="https://github.com/ljareno/gMCS-Net/results/test_predictions_LELO_foldX_sd5.txt">test_predictions_LELO_foldX_sd5.txt</a>: Test set predictions for each cross-validation fold.
+  * <a href="https://github.com/ljareno/gMCS-Net/results/weights.npy">weights.npy</a>: Weights of the gene activation layer.
+
+<p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
 
 <!-- GETTING STARTED -->
