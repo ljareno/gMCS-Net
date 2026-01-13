@@ -96,11 +96,23 @@ gMCS-Net is an interpretable fuzzy neural network that bridges mechanistic model
   * <a href="https://github.com/ljareno/gMCS-Net/code/R/">R/</a>
 
     * <a href="https://github.com/ljareno/gMCS-Net/code/R/AuxFunctions.R">AuxFunctions.R</a>: Auxiliary R functions used throughout the analysis.
-    * <a href="https://github.com/ljareno/gMCS-Net/code/R/max_col_sparse.cpp">max_col_sparse.cpp</a>: C++ function required for the fixed-threshold method.  
-    * <a href="https://github.com/ljareno/gMCS-Net/code/R/metrics.R">metrics.R</a>: Computation of performance metrics and generation of comparison plots for gMCS-Net, fixed-threshold, and XGBoost methods.
     * <a href="https://github.com/ljareno/gMCS-Net/code/R/graph_heatmap.R">graph_heatmap.R</a>: Script for heatmap generation.
     * <a href="https://github.com/ljareno/gMCS-Net/code/R/K_fold_cross_validation.R">K_fold_cross_validation.R</a>: K-fold cross-validation of cell lines.
+    * <a href="https://github.com/ljareno/gMCS-Net/code/R/max_col_sparse.cpp">max_col_sparse.cpp</a>: C++ function required for the fixed-threshold method.  
+    * <a href="https://github.com/ljareno/gMCS-Net/code/R/metrics.R">metrics.R</a>: Computation of performance metrics and generation of comparison plots for gMCS-Net, fixed-threshold, and XGBoost methods.
     * <a href="https://github.com/ljareno/gMCS-Net/code/R/SLKB.R">SLKB.R</a>: Double gene knockout analysis and associated visualizations.
+
+* <a href="https://github.com/ljareno/gMCS-Net/cluster/">cluster/</a>: Required files to train the model in a cluster. 
+
+  * <a href="https://github.com/ljareno/gMCS-Net/cluster/test_execute.sbs">test_execute.sbs</a>: SLURM batch script used to submit a testing job to the cluster. It requests minimal computational resources for inference, loads the required modules, activates the gMCS-Net conda environment, and executes the `test.sh` script.
+  
+  * <a href="https://github.com/ljareno/gMCS-Net/cluster/test.sh">test.sh</a>: Shell script that runs the model inference and evaluation. It activates the conda environment and executes the Python testing script (`test_LELO.py`), redirecting the output logs to the results directory.
+  
+  * <a href="https://github.com/ljareno/gMCS-Net/cluster/train_execute.sbs">train_execute.sbs</a>: SLURM batch script used to submit a training job to the cluster. It defines the required computational resources (GPU, memory, CPUs), loads the necessary modules, activates the conda environment, and launches the `train.sh` script.
+  
+  * <a href="https://github.com/ljareno/gMCS-Net/cluster/train.sh">train.sh</a>: Shell script that launches the model training process. It sets the experiment name and output directory, activates the conda environment, authenticates with Weights & Biases, and executes the training script (`train_wandb.py`), saving the training logs to disk.
+
+  
 
 * <a href="https://github.com/ljareno/gMCS-Net/data/">data/</a>: Input files required for model training and downstream analyses.
 
