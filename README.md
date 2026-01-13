@@ -3,14 +3,12 @@
 
 <h1 align="center">gMCS-Net</h1>
 
-<p align="center">
-  An interpretable fuzzy neural network to predict context-specific essential genes. 
-
-  *Authors: Laura Jareño, Luca Sára Pusztaházi, Naroa Barrena, Francisco J. Planes, Orsolya Csiszár, Angel Rubio*
-
-  <br />
-  <a href="https://github.com/ljareno/gMCS-Net/issues">Request Feature</a>
-  <br />
+<p style="text-align: center;">
+An interpretable fuzzy neural network to predict context-specific essential genes.
+<br><br>
+<i>Authors: Laura Jareño, Luca Sára Pusztaházi, Naroa Barrena, Francisco J. Planes, Orsolya Csiszár, Angel Rubio</i>
+<br><br>
+<a href="https://github.com/ljareno/gMCS-Net/issues">Request Feature</a>
 </p>
 
 
@@ -81,13 +79,13 @@ gMCS-Net is an interpretable fuzzy neural network that bridges mechanistic model
 
 * <a href="https://github.com/ljareno/gMCS-Net/cluster/">cluster/</a>: Required files to train the model in a cluster. 
 
-  * <a href="https://github.com/ljareno/gMCS-Net/cluster/test_execute.sbs">test_execute.sbs</a>: SLURM batch script used to submit a testing job to the cluster. It requests minimal computational resources for inference, loads the required modules, activates the gMCS-Net conda environment, and executes the `test.sh` script.
+  * <p style="text-align: justify;"><a href="https://github.com/ljareno/gMCS-Net/cluster/test_execute.sbs">test_execute.sbs</a>: SLURM batch script used to submit a testing job to the cluster. It requests minimal computational resources for inference, loads the required modules, activates the gMCS-Net conda environment, and executes the test.sh script.</p>
   
-  * <a href="https://github.com/ljareno/gMCS-Net/cluster/test.sh">test.sh</a>: Shell script that runs the model inference and evaluation. It activates the conda environment and executes the Python testing script (`test_LELO.py`), redirecting the output logs to the results directory.
+  * <p style="text-align: justify;"><a href="https://github.com/ljareno/gMCS-Net/cluster/test.sh">test.sh</a>: Shell script that runs the model inference and evaluation. It activates the conda environment and executes the Python testing script (test_LELO.py), redirecting the output logs to the results directory.</p>
   
-  * <a href="https://github.com/ljareno/gMCS-Net/cluster/train_execute.sbs">train_execute.sbs</a>: SLURM batch script used to submit a training job to the cluster. It defines the required computational resources (GPU, memory, CPUs), loads the necessary modules, activates the conda environment, and launches the `train.sh` script.
+  * <p style="text-align: justify;"><a href="https://github.com/ljareno/gMCS-Net/cluster/train_execute.sbs">train_execute.sbs</a>: SLURM batch script used to submit a training job to the cluster. It defines the required computational resources (GPU, memory, CPUs), loads the necessary modules, activates the conda environment, and launches the `train.sh` script.</p>
   
-  * <a href="https://github.com/ljareno/gMCS-Net/cluster/train.sh">train.sh</a>: Shell script that launches the model training process. It sets the experiment name and output directory, activates the conda environment, authenticates with Weights & Biases, and executes the training script (`train_wandb.py`), saving the training logs to disk.
+  * <p style="text-align: justify;"><a href="https://github.com/ljareno/gMCS-Net/cluster/train.sh">train.sh</a>: Shell script that launches the model training process. It sets the experiment name and output directory, activates the conda environment, authenticates with Weights & Biases, and executes the training script (train_wandb.py), saving the training logs to disk.</p>
 
 * <a href="https://github.com/ljareno/gMCS-Net/code/python/">code/</a>
 
@@ -176,7 +174,7 @@ conda create --prefix PATH_TO_SAVE_ENVIRONMENT/gMCS-Net python=3.9
 conda activate PATH_TO_SAVE_ENVIRONMENT/gMCS-Net
 ```   
 
-**3.** Install the cuda-toolkit (other versions= https://anaconda.org/nvidia/cuda-toolkit), don't necessarily choose the most recent version, make sure that it is a version compatible with PyTorch Sparse and Pytorch.
+<p style="text-align: justify;"><b>3.</b> Install the cuda-toolkit (other versions= https://anaconda.org/nvidia/cuda-toolkit), don't necessarily choose the most recent version, make sure that it is a version compatible with PyTorch Sparse and Pytorch.</p>
 
 ```bash
 conda install -c "nvidia/label/cuda-11.8.0" cuda-toolkit 
@@ -185,15 +183,15 @@ conda install -c "nvidia/label/cuda-11.8.0" cuda-toolkit
 
 **4.** Install PyTorch and PyTorch Sparse in the created gMCS-Net environment
 
-  * Depending on the **specifications of your machine and cuda-toolkit installed**, run appropriate command to install PyTorch.
-  The installation command line can be found in https://pytorch.org/get-started/locally/ or https://pytorch.org/get-started/previous-versions/.
+  * <p style="text-align: justify;"> Depending on the **specifications of your machine and cuda-toolkit installed**, run appropriate command to install PyTorch.
+  The installation command line can be found in https://pytorch.org/get-started/locally/ or https://pytorch.org/get-started/previous-versions/.</p>
 
   For cuda 11.8 and linux/windows OS...
    ```bash
   pip install pytorch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 pytorch-cuda=11.8 -c pytorch -c nvidia
   ```
 
-**5.** After installing PyTorch install <a href="https://pypi.org/project/torch-sparse/">PyTorch Sparse</a>, to install the binaries for PyTorch simply run (make sure you install it for the correct PyTorch version)...
+<p style="text-align: justify;"><b>5.</b> After installing PyTorch install <a href="https://pypi.org/project/torch-sparse/">PyTorch Sparse</a>, to install the binaries for PyTorch simply run (make sure you install it for the correct PyTorch version)...
 
   ```bash
   pip install torch-scatter torch-sparse -f https://data.pyg.org/whl/torch-2.1.0+cu118.html 
@@ -340,7 +338,7 @@ sweep_id = wandb.sweep(sweep_config, entity="YOUR_USERNAME", project=opt.project
 
 ## Testing
 
-The testing script is: <a href="https://github.com/ljareno/gMCS-Net/code/python/test_LELO.py">code/python/test_LELO.py</a>. In section 1) Paths and data, adjust paths to your data location and the output directory where results will be saved. This workflow uses a pre-trained model to generate predictions.
+<p style="text-align: justify;">The testing script is: <a href="https://github.com/ljareno/gMCS-Net/code/python/test_LELO.py">code/python/test_LELO.py</a>. In section 1) Paths and data, adjust paths to your data location and the output directory where results will be saved. This workflow uses a pre-trained model to generate predictions.</p>
 
 
 <!-- PREDICTION PARAMETERS -->
@@ -405,7 +403,7 @@ In <a href="https://github.com/ljareno/gMCS-Net/code/python/neural_network_SLKB.
 
 Any contributions you make are **greatly appreciated**.
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an <a href="https://github.com/ljareno/gMCS-Net/issues">issue</a> with the tag "enhancement".
+<p style="text-align: justify;">If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an <a href="https://github.com/ljareno/gMCS-Net/issues">issue</a> with the tag "enhancement".</p>
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
